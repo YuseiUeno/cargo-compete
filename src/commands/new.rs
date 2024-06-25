@@ -87,7 +87,7 @@ pub fn run(opt: OptCompeteNew, ctx: crate::Context<'_>) -> anyhow::Result<()> {
 
             let group = Group::Atcoder(crate::web::url::atcoder_contest(
                 outcome
-                    .get(0)
+                    .first()
                     .and_then(|p| p.contest_url.as_ref())
                     .with_context(|| "empty result")?,
             )?);
@@ -145,7 +145,7 @@ pub fn run(opt: OptCompeteNew, ctx: crate::Context<'_>) -> anyhow::Result<()> {
 
             let group = Group::Codeforces(crate::web::url::codeforces_contest(
                 outcome
-                    .get(0)
+                    .first()
                     .and_then(|p| p.contest_url.as_ref())
                     .with_context(|| "empty result")?,
             )?);
@@ -208,7 +208,7 @@ pub fn run(opt: OptCompeteNew, ctx: crate::Context<'_>) -> anyhow::Result<()> {
             )?;
 
             let contest = outcome
-                .get(0)
+                .first()
                 .and_then(|p| p.contest_url.as_ref())
                 .map(crate::web::url::yukicoder_contest)
                 .transpose()?;

@@ -282,6 +282,7 @@ jobs:
           RUST_BACKTRACE: full
           ATCODER_USERNAME: ${{ secrets.ATCODER_USERNAME }}
           ATCODER_PASSWORD: ${{ secrets.ATCODER_PASSWORD }}
+        if: false # perhaps AtCoder no longer allows tests like ours
 
   upload-archives:
     strategy:
